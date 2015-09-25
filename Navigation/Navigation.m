@@ -4,7 +4,7 @@ function Nav = Navigation(Fleet)
 % Outputs: Nav[1 by 3] = [vx,vy,vz]
 %%
 
-% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest]
+% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest,TMission]
 % Dest_type = 0 (Delivery Destination), = 1 (Landing Path), = 2 (Take-off)
 
 if Fleet.Type == 1

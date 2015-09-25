@@ -4,7 +4,7 @@ function New_Motion = Final_Motion(Fleet,Nav,Col,Nearby,dT)
 %          New_Motion.Velocity = [vx,vy,vz]
 
 %% Inputs Information
-% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest]
+% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest,TMission]
 % Type = 1 (UAV), = 2(GA)
 % Statue = 0 (Rest),    = 1 (Start Flying), = 2 (Finish Mission), 
 %        = 3 (Standby), = 4 (Crash), = 5 (Emergency)

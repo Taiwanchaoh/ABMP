@@ -6,10 +6,21 @@ clear all
 clc
 % Map Folders
 SetPath
+% Set worker to do parallel computing
+pool_size = 6;
+pool_obj = gcp('nocreate');
+if isempty(pool_obj)
+    parpool(pool_size) % Setting how many workers into parallel computing
+else
+    if pool_size ~= pool_obj.NumWorkers
+        delete(pool_obj)
+        parpool(pool_size)
+    end
+end
 
 %% Setting the simulation
-T = 60*5; % (Hour)
-dT = 1;   % Updating period
+T = 60*60*8; % (s)
+dT = 60;     % Updating period (s)
 
 NU = 20;  % Total number of UAV
 NG = 20;  % Total number of GA

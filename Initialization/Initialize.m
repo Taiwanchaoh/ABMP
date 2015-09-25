@@ -2,7 +2,7 @@
 
 
 %% Initialize the fleet
-% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest]
+% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest,TMission]
 
 % Type = 1 (UAV), = 2(GA)
 
@@ -13,6 +13,8 @@
 % Dest = [dx,xy,xz] (Dest is destination location when Dest_Type = 0)
 %                   (Dest is number of flight path when Dest_Type ~= 0,
 %                   e.g.: [1,1,1] or [2,2,2] or ...
+
+% TMission = time (When the mission assigned to the agent)
 for i = 1:N
     if i <= NU
         Fleet(i).Type      = 1;
@@ -27,6 +29,7 @@ for i = 1:N
     Fleet(i).Position = [0 0 0];
     Fleet(i).Velocity = [0 0 0];
     Fleet(i).Statue   = 0;
+    Fleet(i).TMission = 0;
 end
 
 %% Define the location of airport and warehouse

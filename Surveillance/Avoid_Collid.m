@@ -3,7 +3,7 @@ function Col = Avoid_Collid(Fleet,Nearby)
 % Outputs: Col[1 by 3] = [vx,vy,vz]
 
 %%
-% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest]
+% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest,TMission]
 % Type = 1 (UAV), = 2(GA)
 % Statue = 0 (Rest),    = 1 (Start Flying), = 2 (Finish Mission), 
 %        = 3 (Standby), = 4 (Crash), = 5 (Emergency)

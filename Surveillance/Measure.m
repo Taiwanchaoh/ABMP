@@ -5,4 +5,6 @@ function [Nearby] = Measure(Fleet,i,Constants)
 % Output: Nearby(k by 7) = [px,py,pz,vx,vy,vz,d];
 %         k = total number of Air Vehicle within the radius
 
+% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest,TMission]
+
 end
