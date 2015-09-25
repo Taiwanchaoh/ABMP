@@ -29,19 +29,16 @@ NG = 20;  % Total number of GA
 N = NU + NG;
 % Execute Initialize.m file
 Initialize
+
 % Dtat information:
-% Fleet = [type,Position,Volicity,Statue,size,Dest_type,Dest]
-
+% Fleet = [Type,Position,Volicity,Statue,size,Dest_type,Dest]
 % Type = 1 (UAV), = 2(GA)
-
 % Statue = 0 (Rest),    = 1 (Start Flying), = 2 (Finish Mission), 
 %        = 3 (Standby), = 4 (Crash), = 5 (Emergency)
-
 % Dest_type = 0 (Delivery Destination), = 1 (Landing Path), = 2 (Take-off)
 % Dest = [dx,xy,xz] (Dest is destination location when Dest_Type = 0)
 %                   (Dest is number of flight path when Dest_Type ~= 0,
 %                   e.g.: [1,1,1] or [2,2,2] or ...
-
 Constants.Final = T;   Constants.dT = dT;
 Constants.NU    = NU;  Constants.NG = NG;
 Constants.N     = N;   
@@ -55,7 +52,7 @@ for k = 1:length(time)
     
     % Agent start thinking
     parfor i = 1:N
-        if Fleet(i).Statue == 1
+        if (Fleet(i).Statue == 1) || (Fleet(i).Statue == 5)
             % Measurement - This function should find out the position,
             % distance and the velocity of nearby air vehicle.
             [Nearby] = Measure(Fleet,i,Constants);
@@ -82,6 +79,7 @@ for k = 1:length(time)
         else
             New_Motion(i).Position = Fleet(i).Position;
             New_Motion(i).Velocity = zeros(1,3);
+            New_Statute(i) = Fleet(i).Statute;
         end
     end
     
@@ -94,7 +92,11 @@ for k = 1:length(time)
         end
     end
     
+    % Count the event of near miss.
     Near_Miss = sum(Near_Miss_C);
+    
+    % The function is used to visualize the virtual world.
+    ViewFleet(Fleet,Constants);
 end
 
 
